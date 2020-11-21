@@ -11,7 +11,7 @@ This was an introduction to Circuit Python using an Arduino Metro. I used the Ca
 
 ### Image
 
-<img src="Images/IMG_6030.JPG" alt="Hello Circuit Python Red Light" width="350" height="350">
+<img src="Images/RedLight.png" alt="Hello Circuit Python Red Light" width="350" height="350">
 
 
 ### Reflection
