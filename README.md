@@ -8,18 +8,17 @@ This was an introduction to Circuit Python using an Arduino Metro. I used the Ca
 
 ```C++
 import board
-import neopixel
+import neopixel //board and neopixel libraries added to circuit py
 
 
 dot = neopixel.NeoPixel(board.NEOPIXEL, 1)
 
 
-print("Make it red!")
+print("Make it red!") //serial monitor print
 
 
 while True:
-     dot.fill((50,0,0))
-
+     dot.fill((50,0,0)) //loop controlling brightness of LED
 
  ```
 
