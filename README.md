@@ -37,3 +37,59 @@ Lessons Learned:
 - You must import information into the Circuit Python code in order for it to understand specific functions. (i.e. import board, import time, import neopixel) 
 - Eject Arduino from files (by clicking up arrow next to CIRCUIT PYTHON) before unplugging it. 
 - Helpful website I used to figure everything out: [Adafruit: Using Circuit Python on a Chromebook](https://learn.adafruit.com/using-circuit-playground-express-makecode-circuitpython-on-a-chromebook/caret-editor) 
+
+
+
+## CircuitPython Servo
+### Description
+This was a two-step project, the first step was to wire a servo so it would continuosly move back and forth 180 degrees. The next step was to set up capacitive touch with two wires so that the servo would move one way or the other depending on which wire was pressed. 
+
+### Evidence
+```C++
+
+import time
+import board
+import pulseio
+import touchio
+from adafruit_motor import servo
+ 
+# create a PWMOut object on Pin A2.
+pwm = pulseio.PWMOut(board.A2, frequency=50)
+ 
+# Create a servo object, my_servo.
+my_servo = servo.ContinuousServo(pwm)
+
+touch_A0 = touchio.TouchIn(board.A0)  # Not a touch pin on Trinket M0!
+touch_A1 = touchio.TouchIn(board.A1)  # Not a touch pin on Trinket M0!
+ 
+while True:
+   
+    if touch_A0.value:
+        print("Touched A0!")
+        my_servo.throttle = 1.0
+        time.sleep(2.0)
+        
+    if touch_A1.value:
+        print("Touched A1!")
+        my_servo.throttle = -1.0
+        time.sleep(2.0)
+        
+   
+
+ ```
+
+### Image
+
+
+### Reflection 
+- Capacitive touch works for all analog pins (A0-A5) on Arduino Metro Express. 
+- Can't just tap the wire, have to make sure that it is pressed enough to activate the pin. 
+- As always, GOOGLE TO FIND CODE. And read through the website so you can be sure you're using the right version. 
+- When shifting between testing multiple codes, only one can be named code.py and run, so other codes should be given test names, and can switch names out to run them.
+- If you change the pins in the original code, make sure you change evey instance of the pin. 
+- Websites I used: 
+     - [Adafruit CircuitPython Servo](https://learn.adafruit.com/circuitpython-essentials/circuitpython-servo) 
+     - [Adafruit CircuitPython Cap Touch](https://learn.adafruit.com/adafruit-metro-m0-express-designed-for-circuitpython/circuitpython-cap-touch)
+     
+ 
+
