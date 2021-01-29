@@ -74,11 +74,13 @@ while True:
         my_servo.throttle = -1.0
         time.sleep(2.0)
         
-   
 
  ```
 
-### Image
+### Video
+
+[CircuitPython Servo Video](https://github.com/gwyatt40/CircuitPython/blob/main/Images/IMG_0130.MOV)
+     
 
 
 ### Reflection 
